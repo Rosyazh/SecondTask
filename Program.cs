@@ -170,7 +170,6 @@ namespace SecondTask
                         firstStudent.ResetAllMarks();
                         break;
                     case 6:
-                        //обмен названий предметов между первым и последним
                         string x = firstStudent.marks[0].subjectName;
                         string y = firstStudent.marks[firstStudent.marks.Length - 1].subjectName;
                         firstStudent.Exchange(ref x, ref y);
