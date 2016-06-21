@@ -37,18 +37,15 @@ namespace SecondTask
         //Replacement the selected subject to another subject (Math|10).
         public void Replace(int num, string name, int mark)
         {
-            for (int i = 0; i < marks.Length; i++)
-            {
                 marks[num - 1].subjectName = name;
                 marks[num - 1].subjectMark = mark;
-            }
         }
         //Exchange of names between the first and last subjects.
         public void Exchange(ref string firstMark, ref string lastMark)
         {
             string str = firstMark;
-            marks[0].subjectName = lastMark;
-            marks[marks.Length - 1].subjectName = str;
+            firstMark = lastMark;
+            lastMark = str;
         }
         //The maximum and minimum marks.
         public void MinAndMaxMarks(out int _min, out int _max)
@@ -173,6 +170,8 @@ namespace SecondTask
                         string x = firstStudent.marks[0].subjectName;
                         string y = firstStudent.marks[firstStudent.marks.Length - 1].subjectName;
                         firstStudent.Exchange(ref x, ref y);
+                        firstStudent.marks[0].subjectName = x;
+                        firstStudent.marks[firstStudent.marks.Length - 1].subjectName = y;
                         break;
                     case 7:
                         int min, max;
